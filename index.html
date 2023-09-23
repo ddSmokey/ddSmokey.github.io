@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ddSmokey Programming Blog</title>
+<meta charset="utf-8"/>
+<style type="text/css" media="screen">
+	.blogHeader { position:fixed; overflow:hidden; margin-top:0; margin-right:16px; background-color:white; }
+	.content { margin-top:166; }
+	th { padding:2px 8px 2px 8px; background-color:#3FEEE6; font-size:11pt; font-weight:700; vertical-align:top; color:black; }
+</style>
+<style type="text/css" media="print">
+	.blogHeader { position:relative; overflow:auto; margin-top:0; margin-right:0; background-color:white; }
+	.content {margin-top:0; }
+	th { padding:2px 8px 2px 8px; background-color:#3AAFA9; font-size:11pt; font-weight:700; vertical-align:top; color:white; }
+</style>
+<style type="text/css" media="all">
+	body { position:absolute; font-family: Segoe UI, Arial, sans-serif; font-size:10pt; font-weight:500; font-style:normal; color:black; background-color:white; vertical-align:top; margin:0 10 10 10; padding:0 4pt 4pt 4pt; border:1px solid black; }
+	h1  { font-family: Segoe UI, Arial, sans-serif; font-size:11pt; font-weight:700; margin:6pt 5px 6pt 5px; color:Black; }
+	h2  { font-family: Segoe UI, Arial, sans-serif; font-size:10pt; font-weight:700; margin:0; color:Black; }
+	p   { font-family: Segoe UI, Arial, sans-serif; font-size:10pt; font-weight:500; margin:0 5px 0 5px; color:Black; }
+	action { font-family: Segoe UI, Arial, sans-serif; font-size:10pt; font-weight:700; font-style:normal; margin:0; color:Red; }
+	.prefix { color:#4B0082; font-style:Italic; font-weight:700; }
+	.textBlack { color:Black; font-style:normal; font-weight:500;}
+	.textBlue { color:Blue; font-style:normal; font-weight:500; }
+	.textRed { color:Red; font-style:normal; font-weight:500; }
+	.textDarkSlateBlue { color:#483D8B; font-style:normal; font-weight:500; }
+	.textSteelBlue { color:#4682B4; font-style:normal; font-weight:500; }
+	.textTeal { color:#008080; font-style:normal; font-weight:500; }
+	.boldBlack { color:Black; font-style:normal; font-weight:700; }
+	.boldBlue { color:Blue; font-style:normal; font-weight:700; }
+	.boldGray { color:#808080; font-style:normal; font-weight:700; }
+	.boldRed { color:Red; font-style:normal; font-weight:700; }
+	.boldGreen { color:Green; font-style:normal; font-weight:700; }
+	.boldMagenta { color:#8B008B; font-style:normal; font-weight:700; }
+	.boldMediumBlue { color:#0000CD; font-style:normal; font-weight:700; }
+	.boldNavy { color:#000080; font-style:normal; font-weight:700;}
+	.boldSteelBlue { color:#4682B4; font-style:normal; font-weight:700; }
+	.boldTeal { color:#008080; font-style:normal; font-weight:700; }
+	.mono { font-family:Consolas, SF Mono; font-size:10pt; font-weight:500; }
+	.RJboldRed { color:Red; font-style:normal; font-weight:700; float:right; }
+	ul li { margin: 6pt 0 6pt 0; }
+	table { table-layout:fixed; margin:0 0 6px 0; padding:4px; border:1px solid black; border-collapse:collapse; font-family:font-family: Segoe UI, Arial, sans-serif; font-size:10pt; }
+	tr { border-style:solid; border-width:0; border-spacing:0; border-color:white; }
+	td { padding:2px 8px 2px 8px; background-color:#E8F0FF; font-size:10pt; font-weight:500; vertical-align:top; }
+
+	th.RJNoLeftBorder { border-left:0px solid white; border-bottom:0; text-align:right; vertical-align:bottom; }
+	th.LJLeftBorder   { border-left:1px solid black; border-bottom:0; text-align:left; vertical-align:bottom; }
+	th.CJLeftBorder   { border-left:1px solid black; border-bottom:0; text-align:center; vertical-align:bottom; }
+
+	td.rj { border-left:0px solid black; border-top:border-top:1px dotted black; border-bottom:1px dotted black; text-align:right; }
+	td.lj { border-left:1px solid black; border-top:border-top:1px dotted black; border-bottom:1px dotted black; text-align:left;
+			word-break:break-word; }
+	td.cj { border-left:1px solid black; text-align:center }
+
+	td.rjspam { border-left:0px solid black; border-top:1px dotted black; border-bottom:1px dotted black; font-weight:700; text-align:right; }
+	td.ljspam { border-left:1px solid black; border-top:1px dotted black; border-bottom:1px dotted black; text-align:left; word-break:break-word; }
+
+	td.rjfirstrow { border-left:0; border-top:0; border-bottom:1px dotted black; font-weight:700; text-align:right; vertical-align:middle;
+		background-color:#ADD8E6; }
+	td.ljfirstrow { border-left:1px solid black; border-top:0; border-bottom:1px dotted black; font-weight:700; text-align:left;
+		vertical-align:middle; background-color:#ADD8E6; }
+
+	td.rjlastrow { border-left:0px solid black; border-top:1px dotted black; border-bottom:0; text-align:right; }
+	td.ljlastrow { border-left:1px solid black; border-top:1px dotted black; border-bottom:0; text-align:left; word-break:break-word; }
+	td.cjlastrow { border-left:1px solid black; border-bottom:0; text-align:center }
+
+	td.rjemphasis { border-left:0px solid white; font-weight:700; color:#006080; text-align:right; }
+
+	td.rjsummary { border-style:none; border-width:0; border-spacing:0; background-color:white; text-align:right; }
+	td.ljsummary { border-style:none; border-width:0; border-spacing:0; background-color:white; text-align:left; }
+
+</style>
+<!--
+NOTES on the CSS style definitions above:
+	  The css class .prefix has Indigo as the foreground color.
+	  The background color for <th> (#ADD8E6) is LightBlue.
+	  The background color for <td> (#E8F0FF) is slightly darker than Azure.
+	  The background color for <td...firstrow> (#ADD8E6) is LightBlue.
+	  The text color for <td.rjemphasis> (#006080) is a dark blue-green to provide extra emphasis when that class is used.
+	  If spam is found for an item, the background color for its 'Action Taken' column changes from LightBlue to MistyRose (#FFE4E1).
+	  The <th> and <td> subclasses are named by (a) justification, and (b) whether or not each has a border on the left side of the cell.
+	  All <td> cells have 2px top and bottom borders.
+	  Each <table> element has a 4px bottom margin and a 1px black border.
+-->
+</head>
+<body>
+<div class="blogHeader">
+<h1>ddSmokey Programming Blog</h1>
+<p id="processStarted"></p>
+<p id="logFilesDeleted"></p>
+<h1 id="accountInfo"></h1>
+<h1 id="currentFolder"></h1>
+
+<table width="100%">
+<tbody>
+<tr>
+	<th class="RJNoLeftBorder">Property</th>
+	<th class="LJLeftBorder">Item Details and Analysis Results</th>
+	<th class="CJLeftBorder">Action Taken</th>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="content" class="content">
+</div>
+</body>
+</html>
